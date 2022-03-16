@@ -1,24 +1,32 @@
-
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Push_swap.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: amoubare <amoubare@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/03/12 18:34:13 by amoubare          #+#    #+#             */
+/*   Updated: 2022/03/16 20:23:11 by amoubare         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "push_swap.h"
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-    pile a = new_pile();
-    pile b = new_pile();
-    int *p;
+	pile	a;
+	pile	b;
+	int		*p;
 
-    p = (int *)malloc(200);
-    argv_to_a(&a, argc, argv);
-    check_dup(a);
-    is_sorted(a,argc);
-    if(argc > 2 && argc < 30)
-        minisort(argc, &a, &b);
-    else
-        bigsort(p, argv, &a, &b);
-    print_stack(a);
-    // free(p);
-    // ft_free(&a);
+	p = (int *)malloc(200);
+	argv_to_a(&a, argc, argv);
+	check_dup(a);
+	is_sorted(a, argc);
+	if (argc > 2 && argc < 30)
+		minisort(argc, &a, &b);
+	else
+		bigsort(p, argv, &a, &b);
+	while(1);
 }
 
 // int main(int argc, char **arv)

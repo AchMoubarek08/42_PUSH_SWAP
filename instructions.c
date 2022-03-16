@@ -35,8 +35,12 @@ pile    rotate_stack(pile st, char *str)
 void    push_to_stack(pile *a, pile *b, char *str)
 {
     int temp;
+    pile tmp;
+
     temp = (*a)->i;
+    tmp = *a;
     *a = pop_stack(*a);
+    free(tmp);
     *b = push_stack(*b, temp);
     ft_putstr(str);
 }

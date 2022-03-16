@@ -74,6 +74,7 @@ void pushmax(pile *a, pile *b, int argc)
 {
     int i;
     int size;
+    pile temp;
 
     i = 0;
     size = lst_size(*b);

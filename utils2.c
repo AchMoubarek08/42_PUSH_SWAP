@@ -73,15 +73,21 @@ int getmaxindex(pile a)
 void ft_free(pile *a)
 {
     int i;
-    pile *temp;
+    pile temp;
 
-    temp = a;
-    i = 0;
-    while(!stack_vide(*a))
+    while((*a) != NULL)
     {
+        temp = *a;
         *a = (*a)->next;
-        free(*temp);
-        temp = a;
-        i++;
+        free(temp);
+        //temp = NULL;
     }
+
+    //free(a);
+    // if (temp)
+    //  free((*temp));
+    //free(temp);
+    // if (temp)
+    
+    //while(1);
 }

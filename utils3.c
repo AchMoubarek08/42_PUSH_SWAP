@@ -20,7 +20,7 @@ pile    pop_stack(pile st)
         return new_pile();
     element = st;
     st = st->next;
-    free(element);
+    // free(element);
     return(st);
 }
 
