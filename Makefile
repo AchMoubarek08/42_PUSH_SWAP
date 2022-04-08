@@ -1,23 +1,17 @@
-SRC =	instructions.c Push_swap.c BigSort.c BigSortt.c \
+.PHONY: all clean fclean re
+NAME = push_swap
+
+SRC = instructions.c Push_swap.c BigSort.c BigSortt.c \
 		utils.c error.c MiniSort.c utils2.c utils3.c shortcut.c
-
-OBJ =	instructions.o Push_swap.o BigSort.o BigSortt.o \
-		utils.o error.o MiniSort.o utils2.o utils3.o shortcut.o
-
-CC = gcc -c
-
-NAME = push_swap.a
+OBJECT = $(SRC:.c=.o)
 
 all : $(NAME)
 
-$(NAME) : $(OBJ)
-	$(CC) $(SRC)
-	ar rc $(NAME) $(OBJ)
+$(NAME):
+	gcc -Wextra -Werror -Wall $(SRC) -o push_swap
 
-clean : 
-	rm -rf $(OBJ)
-
-fclean : clean
-	rm -rf $(NAME)
-
-re : fclean all
+clean:
+	rm -f $(OBJECT)
+fclean: clean
+	rm -f $(NAME)
+re: fclean all 

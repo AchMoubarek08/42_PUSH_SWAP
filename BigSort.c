@@ -6,18 +6,19 @@
 /*   By: amoubare <amoubare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 16:29:18 by amoubare          #+#    #+#             */
-/*   Updated: 2022/03/15 22:56:02 by amoubare         ###   ########.fr       */
+/*   Updated: 2022/04/08 22:02:31 by amoubare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	getcunk(pile cp, int argc, int *p, char **argv)
+void	getcunk(t_pile cp, int argc, int *p, char **argv)
 {
-	pile	b;
+	t_pile	b;
 	int		i;
 	int		j;
-	pile	head;
+	t_pile	head;
+	int		k;
 
 	b = new_pile();
 	i = 0;
@@ -28,33 +29,30 @@ void	getcunk(pile cp, int argc, int *p, char **argv)
 	head = cp;
 	while (i <= (argc - 2))
 	{
-		if (i == (argc - 2) / 4)
-			p[j++] = cp->i;
-		else if (i == 2 * (argc - 2) / 4)
-			p[j++] = cp->i;
-		else if (i == 3 * (argc - 2) / 4)
-			p[j++] = cp->i;
-		else if (i == (argc - 2))
-			p[j++] = cp->i;
+		k = 0;
+		while (k++ < 4)
+		{
+			if (i == k * (argc - 2) / 4)
+				p[j++] = cp->i;
+		}
 		i++;
 		cp = cp->next;
 	}
 	ft_free(&head);
 }
 
-void	getcunk_hundred(pile cp, int argc, int *p, char **argv)
+void	getcunk_hundred(t_pile cp, int argc, int *p, char **argv)
 {
-	pile	b;
+	t_pile	b;
 	int		i;
 	int		j;
 	int		k;
-	pile	head;
+	t_pile	head;
 
 	i = 0;
 	j = 1;
 	cp = cpy_args(argc, argv);
 	insertionsort(&cp, &b, argc);
-
 	fill_a(&cp, &b, argc);
 	head = cp;
 	while (i <= (argc - 2))
@@ -71,10 +69,10 @@ void	getcunk_hundred(pile cp, int argc, int *p, char **argv)
 	ft_free(&head);
 }
 
-void	push_chunks_to_b(pile *a, pile *b, char **argv, int *p)
+void	push_chunks_to_b(t_pile *a, t_pile *b, char **argv, int *p)
 {
-	pile		temp;
-	pile		tmp;
+	t_pile		temp;
+	t_pile		tmp;
 	int			i;
 	static int	k;
 	int			j;
@@ -95,7 +93,7 @@ void	push_chunks_to_b(pile *a, pile *b, char **argv, int *p)
 	k++;
 }
 
-void	pushchunk(pile *a, pile *b, int j, pile temp)
+void	pushchunk(t_pile *a, t_pile *b, int j, t_pile temp)
 {
 	int	i;
 
@@ -121,7 +119,7 @@ void	pushchunk(pile *a, pile *b, int j, pile temp)
 	push_to_stack(a, b, "pb\n");
 }
 
-void	push_back_to_a(pile *a, pile *b, int argc, int div)
+void	push_back_to_a(t_pile *a, t_pile *b, int argc, int div)
 {
 	int	i;
 

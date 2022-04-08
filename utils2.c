@@ -1,93 +1,94 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils2.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: amoubare <amoubare@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/03/30 22:37:13 by amoubare          #+#    #+#             */
+/*   Updated: 2022/04/08 22:01:53 by amoubare         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "push_swap.h"
 
-int getindex(pile a, int val)
+int	getindex(t_pile a, int val)
 {
-    int i;
-    pile head;
+	int		i;
+	t_pile	head;
 
-    head = a;
-    i = 1;
-    while(head->i != val && head->next)
-    {
-        i++;
-        head = head->next;
-    }
-    return(i);
+	head = a;
+	i = 1;
+	while (head->i != val && head->next)
+	{
+		i++;
+		head = head->next;
+	}
+	return (i);
 }
 
-int lst_size(pile b)
+int	lst_size(t_pile b)
 {
-    int len;
+	int	len;
 
-    len = 0;
-    while(!stack_vide(b))
-    {
-        len++;
-        b = b->next;
-    }
-    return len;
+	len = 0;
+	while (!stack_vide(b))
+	{
+		len++;
+		b = b->next;
+	}
+	return (len);
 }
 
-int getminelem(pile a)
+int	getminelem(t_pile a)
 {
-    int i;
-    int s;
-    pile head;
+	int		i;
+	int		s;
+	t_pile	head;
 
-    head = a;
-    s = a->i;
-    i = 1;
-    while(!stack_vide(a))
-    {
-        if(a->i < s)
-            s = a->i;
-        a = a->next;  
-    }
-    return(s);
+	head = a;
+	s = a->i;
+	i = 1;
+	while (!stack_vide(a))
+	{
+		if (a->i < s)
+			s = a->i;
+		a = a->next;
+	}
+	return (s);
 }
 
-int getmaxindex(pile a)
+int	getmaxindex(t_pile a)
 {
-    int i;
-    int s;
-    pile head;
+	int		i;
+	int		s;
+	t_pile	head;
 
-    head = a;
-    s = a->i;
-    i = 1;
-    while(!stack_vide(a))
-    {
-        if(a->i >= s)
-            s = a->i;
-        a = a->next;  
-    }
-    while(head->i != s)
-    {
-        i++;
-        head = head->next;
-    }
-    return(i);
+	head = a;
+	s = a->i;
+	i = 1;
+	while (!stack_vide(a))
+	{
+		if (a->i >= s)
+			s = a->i;
+		a = a->next;
+	}
+	while (head->i != s)
+	{
+		i++;
+		head = head->next;
+	}
+	return (i);
 }
 
-void ft_free(pile *a)
+void	ft_free(t_pile *a)
 {
-    int i;
-    pile temp;
+	t_pile	temp;
 
-    while((*a) != NULL)
-    {
-        temp = *a;
-        *a = (*a)->next;
-        free(temp);
-        //temp = NULL;
-    }
-
-    //free(a);
-    // if (temp)
-    //  free((*temp));
-    //free(temp);
-    // if (temp)
-    
-    //while(1);
+	while ((*a) != NULL)
+	{
+		temp = *a;
+		*a = (*a)->next;
+		free(temp);
+	}
 }

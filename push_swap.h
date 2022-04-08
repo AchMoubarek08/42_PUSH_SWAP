@@ -1,62 +1,77 @@
-#ifndef push_swap_h
-# define push_swap_h
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: amoubare <amoubare@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/03/30 23:33:53 by amoubare          #+#    #+#             */
+/*   Updated: 2022/04/08 23:14:06 by amoubare         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
 
 # include <string.h>
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
-    typedef struct pileElement
-    {
-        int i;
-        struct pileElement *next;
-    }pileElement, *pile;
 
-    typedef enum
-    {
-        false,
-        true
-    }Bool;
-void    sorttwo(pile *a);
-pile    sorttree(pile st);
-void    sortfour(pile *a, pile *b);
-void    sortfive(pile *a, pile *b);
-Bool	stack_vide(pile st);
-pile	push_stack(pile st, int x);
+typedef struct pileElement
+{
+	int					i;
+	struct pileElement	*next;
+}pileElement,	*t_pile;
+
+typedef enum bool
+{
+	false,
+	true
+}t_bool;
+void	sorttwo(t_pile *a);
+t_pile	sorttree(t_pile st);
+void	sortfour(t_pile *a, t_pile *b);
+void	sortfive(t_pile *a, t_pile *b);
+t_bool	stack_vide(t_pile st);
+t_pile	push_stack(t_pile st, int x);
 int		ft_atoi(const char *str);
-pile    swap_stack(pile st, char *str);
-void    ft_putstr(char *str);
-void    swap(int *y, int *z);
-void    print_stack(pile st);
-pile    rotate_stack(pile st, char *str);
-pile    new_pile(void);
-void    push_to_stack(pile *a, pile *b, char *str);
-pile    pop_stack(pile st);
-pile    prep_four(pile a);
-pile    prep_five(pile a);
-void    check_dup(pile a);
-void    insertionsort(pile *a, pile *b, int argc);
-int     getmin(pile a);
-pile    get_last(pile a);
-void    reverse_rotate(pile *a, char *str);
-void    fill_a(pile *a, pile *b, int argc);
-void    getcunk(pile cp, int argc, int *p, char **argv);
-pile    cpy_args(int argc, char **argv);
-int     getindex(pile a, int val);
-int     getminelem(pile a);
-void    push_back_to_a(pile *a, pile *b, int argc, int div);
-int     getmaxindex(pile a);
-void    pushmax(pile *a, pile *b, int argc);
-void    insertionsortt(pile *a, pile *b, int argc);
-void    push_chunks_to_b(pile *a, pile *b, char **argv, int *p);
-int     lst_size(pile b);
-void    is_sorted(pile a, int argc);
-void    getcunk_hundred(pile cp, int argc, int *p, char **argv);
-void    ft_free(pile *a);
-void    minisort(int argc, pile *a, pile *b);
-void    bigsort(int *p, char **argv, pile *a, pile *b);
-pile    argv_to_a(pile *a, int argc, char **argv);
-int     count_argc(char **argv);
-void    ft_error();
-void    pushchunk(pile *a, pile *b, int j, pile temp);
+t_pile	swap_stack(t_pile st, char *str);
+void	ft_putstr(char *str);
+void	swap(int *y, int *z);
+void	print_stack(t_pile st);
+t_pile	rotate_stack(t_pile st, char *str);
+t_pile	new_pile(void);
+void	push_to_stack(t_pile *a, t_pile *b, char *str);
+t_pile	pop_stack(t_pile st);
+t_pile	prep_four(t_pile a);
+t_pile	prep_five(t_pile a);
+void	check_dup(t_pile a);
+void	insertionsort(t_pile *a, t_pile *b, int argc);
+int		getmin(t_pile a);
+t_pile	get_last(t_pile a);
+void	reverse_rotate(t_pile *a, char *str);
+void	fill_a(t_pile *a, t_pile *b, int argc);
+void	getcunk(t_pile cp, int argc, int *p, char **argv);
+t_pile	cpy_args(int argc, char **argv);
+int		getindex(t_pile a, int val);
+int		getminelem(t_pile a);
+int		getmaxindex(t_pile a);
+void	pushmax(t_pile *a, t_pile *b);
+void	insertionsortt(t_pile *a, t_pile *b, int argc);
+void	push_chunks_to_b(t_pile *a, t_pile *b, char **argv, int *p);
+int		lst_size(t_pile b);
+void	is_sorted(t_pile a, int argc);
+void	getcunk_hundred(t_pile cp, int argc, int *p, char **argv);
+void	ft_free(t_pile *a);
+void	minisort(int argc, t_pile *a, t_pile *b);
+void	bigsort(int *p, char **argv, t_pile *a, t_pile *b);
+t_pile	argv_to_a(t_pile *a, int argc, char **argv);
+int		count_argc(char **argv);
+void	ft_error(void);
+void	pushchunk(t_pile *a, t_pile *b, int j, t_pile temp);
+void	push_back_to_a(t_pile *a, t_pile *b, int argc, int div);
+int		ft_isdigit(int c);
+void	finish(char **argv, t_pile *a, t_pile *b, int i);
 
 #endif
