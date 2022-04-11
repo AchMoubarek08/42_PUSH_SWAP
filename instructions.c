@@ -6,7 +6,7 @@
 /*   By: amoubare <amoubare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 21:34:39 by amoubare          #+#    #+#             */
-/*   Updated: 2022/04/08 22:02:08 by amoubare         ###   ########.fr       */
+/*   Updated: 2022/04/11 21:06:28 by amoubare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ t_pile	argv_to_a(t_pile *a, int argc, char **argv)
 
 t_pile	swap_stack(t_pile st, char *str)
 {
-	if (st && st->next->i)
+	if (st && st->next)
 	{
 		swap(&st->i, &st->next->i);
 		ft_putstr(str);
